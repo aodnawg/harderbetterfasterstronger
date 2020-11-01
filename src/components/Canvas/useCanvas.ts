@@ -9,7 +9,6 @@ import initThreeObjects from "./initThreeObjects";
 export const useCanvas = () => {
   const uniforms = initUniforms();
   const { camera, renderer, scene } = initThreeObjects();
-
   const ref = useInit(scene, renderer, uniforms);
   useAnimate(scene, renderer, uniforms, camera);
   return ref;

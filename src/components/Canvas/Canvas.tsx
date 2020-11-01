@@ -1,7 +1,7 @@
 import React from "react";
 import { useCanvas } from "./useCanvas";
 
-export const Canvas: React.FC = () => {
+export const Canvas: React.FC<{}> = () => {
   const ref = useCanvas();
   const style: React.CSSProperties = {
     width: "70vw",

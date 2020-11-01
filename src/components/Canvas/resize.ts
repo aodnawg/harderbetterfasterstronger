@@ -6,8 +6,8 @@ export const resize = (
   uniforms: Uniforms
 ): void => {
   renderer.setSize(container.clientWidth, container.clientHeight);
-  uniforms.iResolution.value.x = renderer.domElement.width;
-  uniforms.iResolution.value.y = renderer.domElement.height;
+  uniforms.resolution.value.x = renderer.domElement.width;
+  uniforms.resolution.value.y = renderer.domElement.height;
 };
 
 export default resize;

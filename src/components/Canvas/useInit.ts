@@ -21,8 +21,8 @@ const init = (
   (renderer as any).setPixelRatio!(window.devicePixelRatio);
   container.appendChild(renderer.domElement);
   document.onmousemove = function (e) {
-    uniforms.u_mouse.value.x = e.pageX;
-    uniforms.u_mouse.value.y = e.pageY;
+    uniforms.mouse.value.x = e.pageX;
+    uniforms.mouse.value.y = e.pageY;
   };
 };
 

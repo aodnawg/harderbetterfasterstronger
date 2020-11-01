@@ -1,30 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
 import classNames from "classnames";
 
 import Canvas from "./components/Canvas/Canvas";
+import { CONTAINER_ID } from "./const";
 
 const Word: React.FC = ({ children }) => {
   return (
     <div
       className={classNames("flex", "items-center", "text-center", "h-screen")}
     >
-      <p className={classNames("w-full")}>{children}</p>
+      <p className={classNames("w-full", "text-xl")}>{children}</p>
     </div>
   );
 };
 
 const Bg: React.FC = () => {
   return (
-    <div
-      className={classNames("fixed", "top-0", "left-0", "z-0", "bg-gray-900")}
-    >
+    <div className={classNames("fixed", "top-0", "left-0", "z-0", "bg-white")}>
       <div
         className={classNames(
           "w-screen",
           "h-screen",
           "flex",
           "items-center",
-          "justify-between"
+          "justify-center"
         )}
       >
         <Canvas />
@@ -34,8 +33,13 @@ const Bg: React.FC = () => {
 };
 
 const Page: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   return (
-    <div className={classNames("relative")}>
+    <div
+      id={CONTAINER_ID}
+      className={classNames("relative")}
+      ref={containerRef}
+    >
       <Bg />
       <div className={classNames("z-10", "relative", "text-gray-100")}>
         <Word>harder</Word>

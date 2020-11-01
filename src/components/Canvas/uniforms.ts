@@ -8,14 +8,15 @@ export interface Uniform {
   value: any;
 }
 
-export type UniformsKeys = "iTime" | "iResolution" | "u_mouse";
+export type UniformsKeys = "time" | "resolution" | "mouse" | "scroll";
 
 export type Uniforms = { [key in UniformsKeys]: Uniform };
 
 export const initUniforms = (): Uniforms => {
   return {
-    iTime: { type: "f", value: 1.0 },
-    iResolution: { type: "v2", value: new Vector2() },
-    u_mouse: { type: "v2", value: new Vector2() },
+    time: { type: "f", value: 1.0 },
+    resolution: { type: "v2", value: new Vector2() },
+    mouse: { type: "v2", value: new Vector2() },
+    scroll: { type: "f", value: 0 },
   };
 };

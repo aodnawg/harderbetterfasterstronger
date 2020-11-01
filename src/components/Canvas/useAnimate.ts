@@ -1,7 +1,18 @@
 import { useEffect } from "react";
 import * as THREE from "three";
 
+import { CONTAINER_ID } from "../../const";
 import { Uniforms } from "./uniforms";
+
+const calcScroll = () => {
+  const scrollY = window.scrollY;
+  const contaier = document.getElementById(CONTAINER_ID);
+  if (!contaier) {
+    throw "no container";
+  }
+  const scroll = scrollY / (contaier.clientHeight - window.innerHeight);
+  return scroll;
+};
 
 const render = (
   uniforms: Uniforms,
@@ -9,7 +20,8 @@ const render = (
   scene: THREE.Scene,
   camera: THREE.Camera
 ) => {
-  uniforms.iTime.value += 0.05;
+  uniforms.time.value += 0.01;
+  uniforms.scroll.value = calcScroll();
   renderer.render(scene, camera);
 };
 
