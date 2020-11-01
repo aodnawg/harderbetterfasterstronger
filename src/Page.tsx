@@ -33,10 +33,10 @@ const Page: React.FC = () => {
     >
       <Bg />
       <div className={classNames("z-10", "relative", "text-gray-100")}>
-        <Word>harder</Word>
-        <Word>better</Word>
-        <Word>faster</Word>
-        <Word>stronger</Word>
+        <Word>Harder</Word>
+        <Word>Better</Word>
+        <Word>Faster</Word>
+        <Word>Stronger</Word>
       </div>
     </div>
   );

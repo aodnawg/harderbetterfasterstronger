@@ -41,6 +41,8 @@ const Word: React.FC = ({ children }) => {
         <p>{children}</p>
         <p>{children}</p>
         <p>{children}</p>
+        <p>{children}</p>
+        <p>{children}</p>
       </div>
     </div>
   );

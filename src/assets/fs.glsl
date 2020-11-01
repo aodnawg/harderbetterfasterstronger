@@ -4,9 +4,9 @@ uniform float time;
 uniform vec2 mouse;
 uniform float scroll;
 
-#define MIN_SURF 0.001
+#define MIN_SURF 0.01
 #define MAX_DIST 100.
-#define MAX_LOOP 500
+#define MAX_LOOP 100
 #define PI 3.141593
 
 mat2 rot(float a) {
@@ -94,6 +94,7 @@ float map(vec3 p) {
 
 void main(void) {
     vec2 uv = (gl_FragCoord.xy-.5*resolution.xy)/resolution.y;
+    float phase1 = clamp(scroll*4., 0., 1.);
 
     float glitch = step(.95, random(floor(time*10.)));
     // glitch = mix(-1., 1., glitch);
@@ -117,17 +118,17 @@ void main(void) {
         p = ro+rd*t;
         float d = map(p);
         if(d>MAX_DIST) {
-        col = vec3(1.);
-        break;
+            col = vec3(1.);
+            break;
         }
         if(d<MIN_SURF){
-        col = vec3(0.);
-        break;
+            col = vec3(0.);
+            break;
         }
         t += d;
         s2 += 1.;
     }
 
-    col += vec3(.003)*s2;
-    gl_FragColor = vec4(pow(col, vec3(1.+scroll)), 1.);
+    col += vec3(.001 + phase1 * .01)*s2;
+    gl_FragColor = vec4(pow(col, vec3(1.5)), 1.);
 }

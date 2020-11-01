@@ -4,8 +4,8 @@ import { useCanvas } from "./useCanvas";
 export const Canvas: React.FC<{}> = () => {
   const ref = useCanvas();
   const style: React.CSSProperties = {
-    width: "70vw",
-    height: "70vw",
+    width: "60vw",
+    height: "60vw",
   };
   return <div ref={ref} style={style} />;
 };
