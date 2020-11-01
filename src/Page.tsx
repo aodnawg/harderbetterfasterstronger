@@ -2,17 +2,8 @@ import React, { useRef } from "react";
 import classNames from "classnames";
 
 import Canvas from "./components/Canvas/Canvas";
+import Word from "./components/Word/Word";
 import { CONTAINER_ID } from "./const";
-
-const Word: React.FC = ({ children }) => {
-  return (
-    <div
-      className={classNames("flex", "items-center", "text-center", "h-screen")}
-    >
-      <p className={classNames("w-full", "text-xl")}>{children}</p>
-    </div>
-  );
-};
 
 const Bg: React.FC = () => {
   return (

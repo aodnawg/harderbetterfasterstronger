@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-
+import vertexShader from "../../assets/vs.glsl";
+import fragmentShader from "../../assets/fs.glsl";
 import { Uniforms } from "./uniforms";
 import { resize } from "./resize";
 
@@ -13,8 +14,8 @@ const init = (
   const geometry = new THREE.PlaneBufferGeometry(2, 2);
   const material = new THREE.ShaderMaterial({
     uniforms: uniforms,
-    vertexShader: document.getElementById("vertexShader")!.textContent!,
-    fragmentShader: document.getElementById("fragmentShader")!.textContent!,
+    vertexShader,
+    fragmentShader,
   });
   const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);

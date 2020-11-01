@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "tailwindcss build ./src/style.css -o ./dist/style.css",
     "start": "webpack-dev-server",
+    "prebuild": "tailwindcss build ./src/style.css -o ./dist/style.css",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +17,10 @@
     "@types/classnames": "^2.2.11",
     "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.9",
+    "autoprefixer": "^10.0.1",
+    "css-loader": "^5.0.0",
+    "postcss-cli": "^8.2.0",
+    "postcss-loader": "^4.0.4",
     "raw-loader": "^4.0.1",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.5",
